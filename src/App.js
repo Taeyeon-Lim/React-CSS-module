@@ -1,23 +1,17 @@
-import logo from './logo.svg';
+import { useState } from 'react';
 import './App.css';
+import CheckBox from './components/CheckBox';
 
 function App() {
+  const [checked, setCheck] = useState(false);
+  const onChange = e => {
+    setCheck(e.target.checked);
+  };
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <CheckBox onChange={onChange} checked={checked}>
+        다음 약관에 동의
+      </CheckBox>
     </div>
   );
 }
